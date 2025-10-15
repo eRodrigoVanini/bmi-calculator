@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --varPrimaryColor: rgb(17, 86, 102);
+    --primary-color-darker: rgb(9, 48, 56);
+}
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--varPrimaryColor);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;    
+}
+
+.container {
+    max-width: 640px;
+    margin: 50px auto;         /*Define margina somente para topo e inferior e laterais automáticas*/
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.container h2 {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.parametros {
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    margin: 0px 150px 20px 0px;
+    padding: 0%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form {
+    margin: 5px 0 0 0;
+}
+
+
+
+div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+form input, form label, form button {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input {
+    height: 40px;
+    padding: 0 20px;
+}
+
+form input:focus {
+    outline: 1px solid var(--varPrimaryColor)
+}
+
+form button {
+    border: none;
+    background: var(--varPrimaryColor);
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 700;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+form button:hover {                         /*são estados*/
+    background: var(--primary-color-darker);
+}
+
+form button:active {
+    background: red;
+}
+
+.paragrafo-resultado, .bad {                  /*esta classe está sendo criada e inserida no html pelo js*/
+    background: rgb(109, 255, 182);
+    border-radius: .25rem;
+    padding: 10px 20px;
+}
+
+.bad {
+    background: rgb(255, 150, 150)
+}
