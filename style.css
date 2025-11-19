@@ -1,105 +1,336 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
 
 :root {
-    --varPrimaryColor: rgb(17, 86, 102);
-    --primary-color-darker: rgb(9, 48, 56);
+  --varPrimaryColor: rgb(17, 86, 102);
+  --primary-color-darker: rgb(9, 48, 56);
+  --success-color: rgb(109, 255, 182);
+  --error-color: rgb(255, 150, 150);
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
 * {
-    box-sizing: border-box;
-    outline: 0;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: var(--varPrimaryColor);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.3em;
-    line-height: 1.5em;    
+  background-color: var(--varPrimaryColor);
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .container {
-    max-width: 640px;
-    margin: 50px auto;         /*Define margina somente para topo e inferior e laterais automáticas*/
-    background: #FFFFFF;
-    padding: 20px;
-    border-radius: 10px;
+  max-width: 640px;
+  width: 100%;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.container h1 {
+  font-size: 28px;
+  color: var(--varPrimaryColor);
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
 }
 
 .container h2 {
-    font-size: 22px;
-    margin-top: 20px;
+  font-size: 20px;
+  color: var(--primary-color-darker);
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
+/* Tabela de parâmetros */
 .parametros {
-    font-size: 16px;
-    font-weight: 500;
-    display: flex;
-    margin: 0px 150px 20px 0px;
-    padding: 0%;
-    align-items: center;
-    justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.tabela-imc {
+  display: flex;
+  gap: 20px;
+  background: var(--gray-light);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.coluna {
+  flex: 1;
+}
+
+.coluna h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--varPrimaryColor);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.coluna p {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 0;
+  color: #333;
+}
+
+/* Formulário */
+.formulario {
+  margin-bottom: 20px;
 }
 
 form {
-    margin: 5px 0 0 0;
-}
-
-
-
-div {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-form input, form label, form button {
-    font-size: 16px;
-    font-weight: bold;
-    display: block;
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 form label {
-    margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-color-darker);
+  margin-bottom: 6px;
+  margin-top: 12px;
 }
 
 form input {
-    height: 40px;
-    padding: 0 20px;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  height: 45px;
+  padding: 0 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
 form input:focus {
-    outline: 1px solid var(--varPrimaryColor)
+  outline: none;
+  border-color: var(--varPrimaryColor);
+  box-shadow: 0 0 0 3px rgba(17, 86, 102, 0.1);
+}
+
+form input::placeholder {
+  color: #999;
+  font-weight: 400;
 }
 
 form button {
-    border: none;
-    background: var(--varPrimaryColor);
-    color: #FFF;
-    font-size: 18px;
-    font-weight: 700;
-    height: 50px;
-    cursor: pointer;
-    margin-top: 30px;
+  border: none;
+  background: var(--varPrimaryColor);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  height: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-form button:hover {                         /*são estados*/
-    background: var(--primary-color-darker);
+form button:hover {
+  background: var(--primary-color-darker);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(17, 86, 102, 0.3);
 }
 
 form button:active {
-    background: red;
+  transform: translateY(0);
 }
 
-.paragrafo-resultado, .bad {                  /*esta classe está sendo criada e inserida no html pelo js*/
-    background: rgb(109, 255, 182);
-    border-radius: .25rem;
-    padding: 10px 20px;
+/* Resultado */
+.resultado {
+  min-height: 20px;
+}
+
+.paragrafo-resultado,
+.bad {
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--success-color);
+  border-radius: 6px;
+  padding: 15px 20px;
+  text-align: center;
+  animation: slideIn 0.3s ease;
 }
 
 .bad {
-    background: rgb(255, 150, 150)
+  background: var(--error-color);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    padding: 20px;
+  }
+
+  .container {
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  .container h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .container h2 {
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+
+  /* Tabela compacta para mobile */
+  .parametros {
+    margin-bottom: 20px;
+  }
+
+  .tabela-imc {
+    flex-direction: row;
+    gap: 10px;
+    padding: 12px;
+    overflow-x: auto;
+  }
+
+  .coluna {
+    min-width: 0;
+  }
+
+  .coluna h3 {
+    font-size: 11px;
+    margin-bottom: 6px;
+    white-space: nowrap;
+  }
+
+  .coluna p {
+    font-size: 11px;
+    padding: 3px 0;
+    line-height: 1.4;
+  }
+
+  /* Formulário compacto */
+  .formulario {
+    margin-bottom: 15px;
+  }
+
+  form label {
+    font-size: 13px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+
+  form input {
+    height: 40px;
+    font-size: 15px;
+    padding: 0 12px;
+  }
+
+  form button {
+    height: 44px;
+    font-size: 15px;
+    margin-top: 15px;
+  }
+
+  .paragrafo-resultado,
+  .bad {
+    font-size: 13px;
+    padding: 12px 15px;
+  }
+}
+
+/* Responsividade para Mobile muito pequeno */
+@media (max-width: 375px) {
+  body {
+    padding: 15px 18px;
+  }
+
+  .container {
+    padding: 18px;
+  }
+
+  .container h1 {
+    font-size: 20px;
+  }
+
+  .tabela-imc {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .coluna h3 {
+    font-size: 10px;
+  }
+
+  .coluna p {
+    font-size: 10px;
+    padding: 2px 0;
+  }
+}
+
+/* Responsividade para Desktop */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 720px;
+    padding: 40px;
+  }
+
+  .container h1 {
+    font-size: 32px;
+    margin-bottom: 35px;
+  }
+
+  .container h2 {
+    font-size: 22px;
+  }
+
+  .tabela-imc {
+    padding: 25px;
+  }
+
+  .coluna h3 {
+    font-size: 15px;
+  }
+
+  .coluna p {
+    font-size: 15px;
+    padding: 8px 0;
+  }
+
+  form input {
+    height: 48px;
+    font-size: 17px;
+  }
+
+  form button {
+    height: 52px;
+    font-size: 17px;
+  }
+
+  .paragrafo-resultado,
+  .bad {
+    font-size: 17px;
+    padding: 16px 22px;
+  }
 }
